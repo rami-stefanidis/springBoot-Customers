@@ -1,5 +1,6 @@
 package com.rami.rest;
 
+import com.rami.dao.ClientMapperDao;
 import com.rami.dao.ClientsDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,8 +15,16 @@ public class TestClient {
     @Autowired
     private ClientsDao clientsDao;
 
+    @Autowired
+    private ClientMapperDao clientMapper;
+
     @RequestMapping("/testClient")
     String home() {
         return "Hello World!" + clientsDao.getTestClient();
+    }
+
+    @RequestMapping("/testMyBatis")
+    String testMyBatis() {
+        return "Hello World!" + clientMapper.findClientById(1);
     }
 }

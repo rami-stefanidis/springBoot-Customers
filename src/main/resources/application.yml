@@ -5,9 +5,14 @@
 #spring.datasource.password=passpass
 spring:
   datasource:
-    jdbcUrl: jdbc:mysql://10.0.0.100:3306/CLIENT_DATA
-    driverClassName: com.mysql.jdbc.Driver
-    username: paulina
-    password: passpass
+    client_data:
+        jdbcUrl: jdbc:mysql://10.0.0.100:3306/CLIENT_DATA
+        driverClassName: com.mysql.jdbc.Driver
+        username: paulina
+        password: passpass
+
+mybatis:
+  typeAliasesPackage: com.rami.mybatismappers
+  mapperLocations: classpath*:**/mappers/*.xml
 
 

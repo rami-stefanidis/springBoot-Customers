@@ -36,6 +36,7 @@
       <dependency>
           <groupId>org.mybatis.spring.boot</groupId>
           <artifactId>mybatis-spring-boot-starter</artifactId>
+          <version>1.2.1</version>
       </dependency>
 
       <!-- exclude tomcat jdbc connection pool, use HikariCP -->
