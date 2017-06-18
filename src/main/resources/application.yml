@@ -1,8 +1,6 @@
-#spring.jpa.hibernate.ddl-auto=create
-#spring.datasource.jdbcUrl=jdbc:mysql://10.0.0.100:3306/CLIENT_DATA
-#spring.datasource.driverClassName=com.mysql.jdbc.Driver
-#spring.datasource.username=paulina
-#spring.datasource.password=passpass
+server:
+  port: 8080
+
 spring:
   datasource:
     client_data:
