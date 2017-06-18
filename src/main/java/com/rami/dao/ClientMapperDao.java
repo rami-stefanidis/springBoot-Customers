@@ -4,6 +4,8 @@ import com.rami.annotations.UseClientDataDatasource;
 import com.rami.vo.ClientVO;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 /**
  * Created by Rami Stefanidis on 6/18/2017.
  */
@@ -12,4 +14,8 @@ import org.apache.ibatis.annotations.Mapper;
 public interface ClientMapperDao {
 
     ClientVO findClientById(final int clientId);
+
+    List<ClientVO> getAllClients();
+
+    List<ClientVO> getClientsByZipCode(final String zipCode);
 }

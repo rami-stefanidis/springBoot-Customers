@@ -7,12 +7,32 @@
     <resultMap id="ClientResultMap" type="com.rami.vo.ClientVO">
         <id column="id" property="id" />
         <result column="name" property="name" />
+        <result column="LAST_NAME" property="lastName" />
+        <result column="ADDRESS" property="address" />
+        <result column="ZIP_CODE" property="zipCode" />
+        <result column="COUNTRY" property="country" />
     </resultMap>
 
 
     <select id="findClientById" resultMap="ClientResultMap">
 
-        select id, name from CLIENT_DATA.CLIENTS WHERE id=#{id}
+        select * from CLIENT_DATA.CLIENTS WHERE id=#{id}
+
+    </select>
+
+    <select id="getAllClients" resultMap="ClientResultMap">
+
+        select * from CLIENT_DATA.CLIENTS
+
+    </select>
+
+    <select id="getClientsByZipCode" resultMap="ClientResultMap">
+
+
+        SELECT * FROM CLIENT_DATA.CLIENTS cl
+        JOIN CLIENT_DATA.ZIP_CODE zi
+        ON cl.ZIP_CODE=zi.ZIP_CODE
+        WHERE cl.ZIP_CODE=#{zipCode}
 
     </select>
 
