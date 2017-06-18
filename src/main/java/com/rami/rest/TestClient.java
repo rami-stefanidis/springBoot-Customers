@@ -5,6 +5,7 @@ import com.rami.dao.ClientsDao;
 import com.rami.vo.ClientVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -21,23 +22,23 @@ public class TestClient {
     @Autowired
     private ClientMapperDao clientMapper;
 
-    @RequestMapping("/testClient")
+    @RequestMapping(value = "/testClient" , method = RequestMethod.GET)
     String home() {
         return "Hello World!" + clientsDao.getTestClient();
     }
 
-    @RequestMapping("/testMyBatis")
+    @RequestMapping(value = "/testMyBatis" , method = RequestMethod.GET)
     String testMyBatis() {
         return "Hello World!" + clientMapper.findClientById(1);
     }
 
-    @RequestMapping("/testMyBatisAllClients")
+    @RequestMapping(value = "/testMyBatisAllClients" , method = RequestMethod.GET)
     String testMyBatisAllClients() {
         List<ClientVO> allClients = clientMapper.getAllClients();
         return "All Clients:" + parseList(allClients);
     }
 
-    @RequestMapping("/testMyBatisClientByZip")
+    @RequestMapping(value = "/testMyBatisClientByZip" , method = RequestMethod.GET)
     String testMyBatisClientByZip() {
         List<ClientVO> allClients = clientMapper.getClientsByZipCode("111223");
         return "All Clients by zip:" + parseList(allClients);
