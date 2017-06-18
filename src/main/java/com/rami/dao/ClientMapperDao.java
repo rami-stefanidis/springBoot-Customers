@@ -20,4 +20,8 @@ public interface ClientMapperDao {
     List<ClientVO> getClientsByZipCode(final String zipCode);
 
     void insertClient(final ClientVO clientVO);
+
+    void updateExistingClient(final ClientVO clientVO);
+
+    void deleteExistingClient(final int id);
 }

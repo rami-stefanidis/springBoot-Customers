@@ -42,4 +42,18 @@
 
     </insert>
 
+    <update id="updateExistingClient" parameterType="com.rami.vo.ClientVO" useGeneratedKeys="true" keyProperty="id">
+            UPDATE CLIENT_DATA.CLIENTS
+            SET NAME=#{name},
+            LAST_NAME=#{lastName},
+            ADDRESS=#{address},
+            ZIP_CODE=#{zipCode},
+            COUNTRY=#{country}
+            WHERE id=#{id}
+    </update>
+
+    <delete id="deleteExistingClient" parameterType="int" >
+            DELETE FROM CLIENT_DATA.CLIENTS WHERE id=#{id}
+    </delete>
+
 </mapper>

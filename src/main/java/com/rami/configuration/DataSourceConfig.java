@@ -6,6 +6,9 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 
@@ -15,6 +18,7 @@ import javax.sql.DataSource;
  */
 
 @Configuration
+@EnableTransactionManagement
 @MapperScan(basePackages = "com.rami.dao",annotationClass = UseClientDataDatasource.class)
 public class DataSourceConfig {
 
@@ -22,6 +26,12 @@ public class DataSourceConfig {
     @ConfigurationProperties(prefix = "spring.datasource.client_data")
     public DataSource dataSource() {
         return DataSourceBuilder.create().build();
+    }
+
+
+    @Bean
+    public DataSourceTransactionManager transactionManager() {
+        return new DataSourceTransactionManager(dataSource());
     }
 
 }

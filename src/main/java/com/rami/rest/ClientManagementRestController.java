@@ -30,4 +30,19 @@ public class ClientManagementRestController {
         clientManagementService.insertNewClient(clientVO);
         return  new ResponseEntity(HttpStatus.OK);
     }
+
+    @RequestMapping(value = "/updateExistingClient" , method = RequestMethod.POST)
+    ResponseEntity updateExistingClient(@RequestBody final ClientVO clientVO) {
+        LOG.info("updateExistingClient Client REST invokded clientVO = {}",clientVO);
+        clientManagementService.updateExistingClient(clientVO);
+        return  new ResponseEntity(HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/deleteExistingClient" , method = RequestMethod.POST)
+    ResponseEntity deleteExistingClient(@RequestBody final int id) {
+        LOG.info("updateExistingClient Client REST invokded id = {}",id);
+        clientManagementService.deleteExistingClient(id);
+        return  new ResponseEntity(HttpStatus.OK);
+    }
+
 }
