@@ -36,4 +36,10 @@
 
     </select>
 
+    <insert id="insertClient" parameterType="com.rami.vo.ClientVO" useGeneratedKeys="true" keyProperty="id">
+
+        insert into CLIENT_DATA.CLIENTS(id,name,LAST_NAME,address,zip_code,country) values(#{id},#{name},#{lastName},#{address},#{zipCode},#{country})
+
+    </insert>
+
 </mapper>
